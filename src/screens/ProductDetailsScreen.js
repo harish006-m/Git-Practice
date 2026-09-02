@@ -48,11 +48,8 @@ function ProductDetailsScreen({route, navigation}) {
     dispatch(addToCart(product));
   }
 
-  navigation.navigate('MainTabs', {
-  screen: 'Cart',
-});
+  navigation.navigate('Cart');
 };
-
   return (
     <View style={styles.container}>
 
