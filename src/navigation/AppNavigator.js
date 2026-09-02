@@ -1,5 +1,5 @@
 import React from 'react';
-import WalletScreen from '../screens/WalletScreen';
+
 import {
   NavigationContainer,
 } from '@react-navigation/native';
@@ -9,10 +9,14 @@ import {
 } from '@react-navigation/native-stack';
 
 import MainTabNavigator from './MainTabNavigator';
+
 import ProductDetailsScreen from '../screens/ProductDetailsScreen';
+import CartScreen from '../screens/CartScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
 import OrderSuccessScreen from '../screens/OrderSuccessScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
+import WalletScreen from '../screens/WalletScreen';
+
 const Stack = createNativeStackNavigator();
 
 function AppNavigator() {
@@ -24,43 +28,55 @@ function AppNavigator() {
           headerShown: false,
         }}>
 
-        {/* MAIN APP */}
+        {/* ================= MAIN APP ================= */}
 
         <Stack.Screen
           name="MainTabs"
           component={MainTabNavigator}
         />
 
-        {/* PRODUCT DETAILS */}
+        {/* ================= PRODUCT DETAILS ================= */}
 
         <Stack.Screen
           name="ProductDetails"
           component={ProductDetailsScreen}
         />
 
-        {/* CHECKOUT */}
+        {/* ================= CART ================= */}
+
+        <Stack.Screen
+          name="Cart"
+          component={CartScreen}
+        />
+
+        {/* ================= CHECKOUT ================= */}
 
         <Stack.Screen
           name="Checkout"
           component={CheckoutScreen}
         />
 
-        {/* ORDER SUCCESS */}
+        {/* ================= ORDER SUCCESS ================= */}
 
         <Stack.Screen
           name="OrderSuccess"
           component={OrderSuccessScreen}
         />
-        {/* FAVORITES */}
+
+        {/* ================= FAVORITES ================= */}
 
         <Stack.Screen
           name="Favorites"
           component={FavoritesScreen}
         />
+
+        {/* ================= WALLET ================= */}
+
         <Stack.Screen
-  name="Wallet"
-  component={WalletScreen}
-/>
+          name="Wallet"
+          component={WalletScreen}
+        />
+
       </Stack.Navigator>
 
     </NavigationContainer>

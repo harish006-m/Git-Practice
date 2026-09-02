@@ -42,11 +42,12 @@ function CategoriesScreen({navigation}) {
 
   // ================= ADD TO CART =================
 
- const handleAddToCart = product => {
-  dispatch(addToCart(product));
+  const handleAddToCart = product => {
+    dispatch(addToCart(product));
 
-  navigation.navigate('Cart');
-};
+    navigation.navigate('Cart');
+  };
+
   // ================= FILTER PRODUCTS =================
 
   const filteredProducts = selectedCategory
@@ -56,16 +57,16 @@ function CategoriesScreen({navigation}) {
       )
     : products;
 
+  // ================= UI =================
+
   return (
     <View style={styles.container}>
-
       <ScrollView
         showsVerticalScrollIndicator={false}>
 
         {/* ================= HEADER ================= */}
 
         <View style={styles.header}>
-
           <Text style={styles.title}>
             Categories
           </Text>
@@ -73,7 +74,6 @@ function CategoriesScreen({navigation}) {
           <Text style={styles.subtitle}>
             Shop groceries by category
           </Text>
-
         </View>
 
         {/* ================= CATEGORY LIST ================= */}
@@ -84,7 +84,6 @@ function CategoriesScreen({navigation}) {
           contentContainerStyle={styles.categoryList}>
 
           {categories.map(category => {
-
             const isSelected =
               selectedCategory === category.name;
 
@@ -130,44 +129,34 @@ function CategoriesScreen({navigation}) {
 
         </ScrollView>
 
-        {/* ================= SELECTED CATEGORY ================= */}
+        {/* ================= PRODUCTS HEADER ================= */}
 
         <View style={styles.productsHeader}>
-
           <Text style={styles.sectionTitle}>
-            {selectedCategory ||
-              'All Products'}
+            {selectedCategory || 'All Products'}
           </Text>
 
           <Text style={styles.productCount}>
             {filteredProducts.length} products
           </Text>
-
         </View>
 
         {/* ================= PRODUCTS ================= */}
 
         {filteredProducts.length > 0 ? (
-
           <View style={styles.productGrid}>
 
             {filteredProducts.map(product => (
-
               <ProductCard
                 key={product.id}
                 product={product}
-
                 onPress={handleProductPress}
-
                 onAddToCart={handleAddToCart}
               />
-
             ))}
 
           </View>
-
         ) : (
-
           <View style={styles.emptyContainer}>
 
             <Text style={styles.emptyIcon}>
@@ -184,25 +173,22 @@ function CategoriesScreen({navigation}) {
             </Text>
 
           </View>
-
         )}
 
         <View style={styles.bottomSpace} />
 
       </ScrollView>
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
 
-  /* ================= HEADER ================= */
+  // ================= HEADER =================
 
   header: {
     paddingHorizontal: 20,
@@ -222,7 +208,7 @@ const styles = StyleSheet.create({
     color: '#777777',
   },
 
-  /* ================= CATEGORY ================= */
+  // ================= CATEGORY =================
 
   categoryList: {
     paddingHorizontal: 20,
@@ -242,20 +228,15 @@ const styles = StyleSheet.create({
   iconContainer: {
     width: 75,
     height: 75,
-
     borderRadius: 15,
-
     backgroundColor: '#F2F8F5',
-
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   selectedIconContainer: {
     backgroundColor: '#DDF7EC',
-
     borderWidth: 2,
-
     borderColor: '#00A86B',
   },
 
@@ -265,69 +246,52 @@ const styles = StyleSheet.create({
 
   categoryName: {
     marginTop: 8,
-
     fontSize: 11,
-
     fontWeight: '600',
-
     textAlign: 'center',
-
     color: '#333333',
   },
 
   selectedCategoryName: {
     color: '#00A86B',
-
     fontWeight: '800',
   },
 
-  /* ================= PRODUCTS HEADER ================= */
+  // ================= PRODUCTS HEADER =================
 
   productsHeader: {
     paddingHorizontal: 20,
-
     marginBottom: 15,
-
     flexDirection: 'row',
-
     alignItems: 'center',
-
     justifyContent: 'space-between',
   },
 
   sectionTitle: {
     fontSize: 20,
-
     fontWeight: '700',
-
     color: '#222222',
   },
 
   productCount: {
     fontSize: 12,
-
     color: '#777777',
   },
 
-  /* ================= PRODUCT GRID ================= */
+  // ================= PRODUCT GRID =================
 
   productGrid: {
     paddingHorizontal: 15,
-
     flexDirection: 'row',
-
     flexWrap: 'wrap',
-
     justifyContent: 'space-between',
   },
 
-  /* ================= EMPTY ================= */
+  // ================= EMPTY =================
 
   emptyContainer: {
     alignItems: 'center',
-
     paddingTop: 60,
-
     paddingHorizontal: 30,
   },
 
@@ -337,26 +301,20 @@ const styles = StyleSheet.create({
 
   emptyTitle: {
     marginTop: 15,
-
     fontSize: 19,
-
     fontWeight: '700',
   },
 
   emptyText: {
     marginTop: 6,
-
     fontSize: 13,
-
     color: '#777777',
-
     textAlign: 'center',
   },
 
   bottomSpace: {
     height: 50,
   },
-
 });
 
 export default CategoriesScreen;
