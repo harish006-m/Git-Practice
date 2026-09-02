@@ -16,7 +16,7 @@ import CheckoutScreen from '../screens/CheckoutScreen';
 import OrderSuccessScreen from '../screens/OrderSuccessScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import WalletScreen from '../screens/WalletScreen';
-
+import ProfileScreen from '../screens/ProfileScreen';
 const Stack = createNativeStackNavigator();
 
 function AppNavigator() {
@@ -75,6 +75,13 @@ function AppNavigator() {
         <Stack.Screen
           name="Wallet"
           component={WalletScreen}
+        />
+
+        {/* ================= PROFILE ================= */}
+
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
         />
 
       </Stack.Navigator>
