@@ -7,34 +7,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {Ionicons} from '@react-native-vector-icons/ionicons';
-
 function OrderAgainScreen({navigation}) {
-
   const handleBackToHome = () => {
     navigation.navigate('MainTabs', {
       screen: 'Home',
     });
   };
 
-  const handleBack = () => {
-    navigation.goBack();
-  };
-
   return (
     <View style={styles.container}>
-
-      {/* Top Left Back Button */}
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={handleBack}
-        activeOpacity={0.7}>
-        <Ionicons
-          name="arrow-back"
-          size={24}
-          color="#222222"
-        />
-      </TouchableOpacity>
 
       <Text style={styles.icon}>
         🧾
@@ -67,25 +48,11 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+
     justifyContent: 'center',
     alignItems: 'center',
+
     backgroundColor: '#FFFFFF',
-  },
-
-  backButton: {
-    position: 'absolute',
-    top: 15,
-    left: 15,
-
-    width: 40,
-    height: 40,
-
-    borderRadius: 20,
-
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    backgroundColor: '#F5F5F5',
   },
 
   icon: {
